@@ -1,14 +1,19 @@
 import React from "react";
-
-function About() {
+import PropTypes from "prop-types";
+import Links from "./link";
+function About(props) {
   return (
     <div id="about">
-      <h2>About Me</h2>
-      <p>Put the bio in here</p>
-      <img src="https://i.imgur.com/mV8PQxj.gif" alt="I made this" />
-      {/* add your <Links /> component here */}
+      {props.bio && <p>{props.bio}</p>}
+      <Links github={props.github} linkedin={props.linkedin} />
     </div>
   );
 }
+
+About.propTypes = {
+  bio: PropTypes.string,
+  github: PropTypes.string.isRequired,
+  linkedin: PropTypes.string.isRequired,
+};
 
 export default About;
